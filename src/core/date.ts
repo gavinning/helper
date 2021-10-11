@@ -6,10 +6,20 @@ const enum Format {
 }
 
 export const date = {
+    /**
+     * 日期格式化，日期+时间
+     * @param date
+     * @returns YYYY-MM-DD HH:mm:ss
+     */
     format(date: MomentInput) {
         return moment(date).format(Format.Full)
     },
 
+    /**
+     * 日期格式化，仅日期没有时间
+     * @param date
+     * @returns YYYY-MM-DD
+     */
     formatDate(date: MomentInput) {
         return moment(date).format(Format.Date)
     },

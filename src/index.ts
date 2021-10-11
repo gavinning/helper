@@ -1,4 +1,7 @@
 export * from './core/assert'
+export * from './core/is'
 export * from './core/lib'
 export * from './core/url'
 export * from './core/date'
+export * from './core/array'
+export * from './types'

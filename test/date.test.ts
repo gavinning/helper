@@ -1,7 +1,12 @@
-import { date } from '..'
+import { date } from '../src'
 import moment from 'moment'
 
 describe('lib', () => {
+
+    it('endToday', () => {
+        expect(date.endToday()).toEqual(date.todayEnd().diff(moment(), 'second'))
+        expect(date.endToday(60 * 60)).toEqual(date.todayEnd().diff(moment(), 'second') - 3600)
+    })
 
     it('format', () => {
         const now = Date.now()
@@ -19,11 +24,11 @@ describe('lib', () => {
     })
 
     it('todayStart', () => {
-        expect(date.todayStart()).toEqual(moment(date.today()))
+        expect(date.todayStart().format()).toEqual(moment(date.today()).format())
     })
 
     it('todayEnd', () => {
-        expect(date.todayEnd()).toEqual(moment(date.today()).add(1, 'd'))
+        expect(date.todayEnd()).toEqual(moment().endOf('day'))
     })
 
     it('afterDay', () => {
